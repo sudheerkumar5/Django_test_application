@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>OTP Verification</h2>
+  <p>Enter the OTP sent to {{ mobile_number }} for verification.</p>
+  <form method="post" action="{% url 'otp_verification' username=username mobile_number=mobile_number %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Verify OTP</button>
+  </form>
+{% endblock %}
